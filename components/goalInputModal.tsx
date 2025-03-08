@@ -1,5 +1,5 @@
 import {Button, Image, Modal, StyleSheet, TextInput, View} from "react-native";
-import {useState} from "react";
+import {useState, useTransition} from "react";
 import GoalImage from '../assets/images/goal.png';
 
 
@@ -11,6 +11,7 @@ type GoalInputProps = {
 
 const GoalInputModal = ({visible, onPress, onCancel}: GoalInputProps) => {
     const [goal, setGoal] = useState<string | null>(null);
+    const [, startTransition] = useTransition();
     const goalInput = (text: string) => {
         console.log(text);
         setGoal(text);
@@ -26,9 +27,11 @@ const GoalInputModal = ({visible, onPress, onCancel}: GoalInputProps) => {
                 <View style={GoalInputStyles.actions}>
                     <View style={GoalInputStyles.button}>
                         <Button title="add goal" color="#5e0acc" onPress={() => {
-                            onPress(goal);
-                            setGoal(null);
-                            onCancel();
+                            startTransition(() => {
+                                onPress(goal);
+                                setGoal(null);
+                                onCancel();
+                            })
                         }}/>
                     </View>
                     <View style={GoalInputStyles.button}>
