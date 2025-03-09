@@ -1,5 +1,6 @@
 import {Pressable, StyleSheet, Text} from "react-native";
 import {GoalType} from "@/types";
+import React from "react";
 
 type GoalItemProps = {
     goal: GoalType
@@ -15,7 +16,7 @@ const GoalItem = ({goal, onDelete}: GoalItemProps) => {
     )
 }
 
-export default GoalItem
+export default React.memo(GoalItem)
 
 const GoalItemStyles = StyleSheet.create({
     goalText: {
