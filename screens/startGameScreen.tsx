@@ -41,8 +41,9 @@ const StartGameScreen = ({userNumber, onConfirm}: StartGameScreenProps) => {
                                setNumber(text)
                            }}/>
                 <View style={StartGameScreenStyles.actions}>
-                    <Button style={StartGameScreenStyles.action} title="Reset" onPress={() => setNumber('')}/>
-                    <Button style={StartGameScreenStyles.action} title="Confirm" onPress={validateNumber}/>
+                    <Button style={StartGameScreenStyles.action}
+                            onPress={() => setNumber('')}><Text>Reset</Text></Button>
+                    <Button style={StartGameScreenStyles.action} onPress={validateNumber}><Text>Confirm</Text></Button>
                 </View>
             </View></View>
     );
