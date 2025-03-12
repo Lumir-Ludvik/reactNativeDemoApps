@@ -1,15 +1,12 @@
-import { Text, View } from "react-native";
+import {SafeAreaView} from "react-native";
+import {StatusBar} from "expo-status-bar";
+import CategoriesScreen from "@/screens/categories/Categories.screen";
 
 export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
-  );
+    return (
+        <SafeAreaView style={{flex: 1}}>
+            <StatusBar style="dark"/>
+            <CategoriesScreen/>
+        </SafeAreaView>
+    );
 }
